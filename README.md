@@ -96,3 +96,30 @@ l2.points_from_f([](double x) { return x*x; }, -10, 10, 0.01);
 // create line using default_from_func
 plt::line l3 = plt::line::default_from_func([](double x) {return x*x*x; });
 ```
+
+## Build
+
+1. Using g++ (not recommended)
+
+```
+g++ [your_file.cpp] --std=c++20 -I path/to/plotter/include -I path/to/boost/include -L path/to/plotter/bin/lib -L path/to/boost/lib -lplotter -boost_iostreams -lboost_system -lboost_filesystem
+```
+
+2. Using CMake (Fetch Content)
+
+```
+include(FetchContent)
+
+FetchContent_Declare(
+  plt
+  GIT_REPOSITORY https://github.com/JuliaStrings/utf8proc.git
+)
+FetchContent_MakeAvailable(utf8proc)
+
+...
+
+target_link_libraries(your_app plt::plotter)
+```
+
+
+
