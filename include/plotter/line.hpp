@@ -62,9 +62,9 @@ private:
     void create_style(Gnuplot &gp);
 
     std::vector<boost::tuple<double, double>> m_points;
+    std::string m_line_color = "red";
     LineType m_line_type = LineType::SOLID;
     std::string m_line_width = "1";
-    std::string m_line_color = "red";
     std::string m_line_label = "";
     int m_line_style;
     static int s_style_index;

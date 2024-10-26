@@ -9,7 +9,7 @@ find_package(Boost REQUIRED COMPONENTS
     iostreams system filesystem
 )
 
-add_library(${LIBRARY_NAME}, ${SOURCES})
+add_library(${LIBRARY_NAME} ${SOURCES})
 
 target_compile_options(${LIBRARY_NAME} PRIVATE -Wall -Wextra -Wpedantic -Werror)
 

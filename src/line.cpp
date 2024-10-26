@@ -2,6 +2,8 @@
 
 namespace plt {
 
+int line::s_style_index = 0;
+
 line::line(const std::vector<point>& t_points, const std::string& t_color, LineType t_type, const std::string& t_width) :
         m_points(t_points),
         m_line_color(t_color),
@@ -21,7 +23,7 @@ void line::set_line_width(const std::string& t_line_width) { m_line_width = t_li
 void line::set_line_color(const std::string& t_line_color) { m_line_color = t_line_color; }
 void line::set_line_label(const std::string& t_line_label) { m_line_label = t_line_label; }
 
-void line::points_from_f(std::function<double(double)> t_f, double x_start = 0.0, double x_end = 10.0, double inc = 0.1) {
+void line::points_from_f(std::function<double(double)> t_f, double x_start, double x_end, double inc) {
     m_points.clear();
     for (double x = x_start; x < x_end; x += inc) {
         m_points.push_back(boost::make_tuple(x, t_f(x)));

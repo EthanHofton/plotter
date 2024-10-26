@@ -1,9 +1,11 @@
 #ifndef __PLOTTER_HPP__
 #define __PLOTTER_HPP__
 
-#include "line.hpp"
+#include <plotter/line.hpp>
 #include <memory>
 #include <optional>
+
+namespace plt {
 
 class plotter {
 public:
@@ -26,9 +28,9 @@ public:
 
 private:
 
+    std::string m_title;
     std::string m_x_label;
     std::string m_y_label;
-    std::string m_title;
 
     // optional
     std::optional<std::string> m_filename;
@@ -45,5 +47,7 @@ private:
     // data
     std::vector<line> m_lines;
 };
+
+}
 
 #endif
